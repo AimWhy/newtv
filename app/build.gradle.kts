@@ -62,13 +62,10 @@ android {
     }
     signingConfigs {
         create("release") {
-            storeFile =
-                file(System.getenv("KEYSTORE") ?: keystoreProperties["storeFile"] ?: "keystore.jks")
-            storePassword = System.getenv("KEYSTORE_PASSWORD")
-                ?: keystoreProperties.getProperty("storePassword")
-            keyAlias = System.getenv("KEY_ALIAS") ?: keystoreProperties.getProperty("keyAlias")
-            keyPassword =
-                System.getenv("KEY_PASSWORD") ?: keystoreProperties.getProperty("keyPassword")
+            storeFile = file("AppSignature.jks")
+            storePassword = "AndroidProject"
+            keyAlias = "AndroidProject"
+            keyPassword = "AndroidProject"
         }
     }
     buildTypes {
